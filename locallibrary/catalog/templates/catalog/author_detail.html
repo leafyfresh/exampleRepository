@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Name: {{ author.first_name }} {{ author.last_name }}</h1>
+    <p style="margin-left:40px; font-family: 'Courier New'">Date of Birth: {{ author.date_of_birth }} Date of Death: {{ author.date_of_death }}</p>
+
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Books</h4>
+
+    {% for book in author.book_set.all %}
+{#        <h1>a book</h1>#}
+        <hr>
+        <a href="{{ book.get_absolute_url }}">{{ book }}</a>
+
+    {% endfor %}
+  </div>
+{% endblock %}
